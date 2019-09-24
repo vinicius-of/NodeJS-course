@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title><%= person %></title>
+        <link rel="stylesheet" href="../assets/styles.css">
+    </head>
+    <body>
+        <% include ./partials/nav.ejs %>
+        <h1>Welcome to the profile of <%= person %></h1>
+        <h3>Age: <strong><%= data.age %></strong></h3>
+        <h3>Job: <strong><%= data.job %></strong></h3>
+        <h1>Hobbies</h1>
+        <ul>
+            <% data.hobbies.forEach((item)=>{%>
+                <li><%= item %></li>
+            <%}); %>
+        </ul>
+    </body>
+</html>

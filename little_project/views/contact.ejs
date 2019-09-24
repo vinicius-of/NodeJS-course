@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contact</title>
+    <link rel="stylesheet" href="../assets/styles.css">
+</head>
+
+<body>
+    <% include ./partials/nav.ejs %>
+    <h1>This is the contact page!</h1>
+    <h3>Please, do whatever you want</h3>
+    <!-- <p>Name: <%= qs.person %> </p>
+    <p>Dept: <%= qs.dept %> </p> -->
+
+    <table>
+
+        <tr>
+            <th>Name</th>
+            <th>Departament</th>
+        </tr>
+        <% list.forEach((element) => { %>
+        <tr>
+            <td>
+                <%= element.name %>
+            </td>
+            <td>
+                <%= element.dept %>
+            </td>
+        </tr>
+        <% }); %>
+    </table>
+
+    <!-- http://localhost:3000/contact?dept=marketing&person=joe -> Query String -->
+
+    <form id="contact-form" method="POST" action="/contact">
+        <label for="name">Who do you want to contact?</label>
+        <input type="text" name="name" value="<%= qs.person %>">
+
+        <label for="dept">From which departament?</label>
+        <input type="text" name="dept" value="<%= qs.dept %>">
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+
+</html>
